@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  k6:
+    image: grafana/k6
+    volumes:
+      - ./enrichment-service/test:/test
+    entrypoint: ""
+    command: ["run", "/test/grpc-test.js"]
