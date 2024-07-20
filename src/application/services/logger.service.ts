@@ -1,6 +1,7 @@
+// src/application/services/logger.service.ts
 export interface LoggerService {
-  info : (message: string| unknown)=> void;
-  error : (message: string| unknown)=> void;
-  warning : (message: string| unknown)=> void;
-  debug : (message: string| unknown)=> void;
+  debug(message: unknown): void;
+  info(message: unknown): void;
+  error(message: unknown, err?: Error): void; // Allow an optional second Error argument
+  warning(message: unknown): void;
 }

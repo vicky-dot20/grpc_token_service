@@ -1,3 +1,5 @@
+
+// src/controllers/enrichPayload.controller.ts
 import { enrichedTokenPayload } from "../application/use_cases/enrich.usecase";
 import { SecurePayload } from "../domain/entities/securePayload.entity";
 import { ApplicationErrorFactoryImpl } from "../frameworks/error/applicationError.factory.impl";

@@ -1,3 +1,5 @@
+
+//src/frameworks/error/applicationError.factory.impl.ts
 import { ApplicationErrorFactory,Err,ErrorTypes } from "../../domain/error/applicationError.factory";
 import {
   OperationalError } from "../../domain/error/opeartional.error"

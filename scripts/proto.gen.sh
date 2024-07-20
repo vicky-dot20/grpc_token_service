@@ -1,4 +1,5 @@
 #!/bin/bash
+#scripts/proto.gen.sh
 # Usage proto.gen.sh Path(s)
 # PATH: Proto file path of specific service
 argc=$#
@@ -15,3 +16,5 @@ for ((j=0; j< argc; ++j)); do
     pnpm exec proto-loader-gen-types --grpcLib=@grpc/grpc-js --outDir=src/proto/${argv[j]}/  $(find proto/${argv[j]}/ -type f -name "*.proto" -not -path "proto/${argv[j]}/${argv[j]}.ts")
 
 done
+
+

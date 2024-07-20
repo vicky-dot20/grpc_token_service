@@ -1,38 +1,42 @@
-import { format } from "path"
-import { LoggerService} from "../../application/services/logger.service"
-import {LOG_LEVEL} from "../../main/config/constants"
-import winston from "winston"
+// src/frameworks/logger/winston.logger.impl.ts
+import { LoggerService } from "../../application/services/logger.service";
+import winston from "winston";
+import { LOG_LEVEL } from "../../main/config/constants";
 
-
-const {combine,timestamp,align,colorize,errors,printf}=winston.format;
+const { combine, timestamp, align, colorize, errors, printf } = winston.format;
 
 export default class Logger implements LoggerService {
-  logger = winston.createLogger({
+  private logger = winston.createLogger({
     level: LOG_LEVEL,
     format: combine(
-      errors({stack:true}),
-      colorize({all:true}),
+      errors({ stack: true }),
+      colorize({ all: true }),
       timestamp({
-        format:"YYYY-MM-DD hh:mm:ss.SSS A Z",
+        format: "YYYY-MM-DD hh:mm:ss.SSS A Z",
       }),
       align(),
       printf((info) => `[${info.timestamp}] ${info.level}: ${info.message}`),
-      
     ),
     transports: [new winston.transports.Console()]
-
   });
-  constructor(){}
-  debug= (message: string | unknown) :void=>{
+
+  debug(message: unknown): void {
     this.logger.debug(message);
   }
-  info= (message: string | unknown): void => {
+
+  info(message: unknown): void {
     this.logger.info(message);
   }
-  error= (message: string | unknown):void => {
-    this.logger.error(message);
-  }
-  warning=(message: string | unknown):void => {
+
+  error(message: unknown, err?: Error): void {
+    if (err) {
+        this.logger.error(`${message}: ${err.message}`, { stack: err.stack });
+    } else {
+        this.logger.error(String(message));
+    }
+}
+
+  warning(message: unknown): void {
     this.logger.warning(message);
   }
 }

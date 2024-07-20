@@ -1,3 +1,5 @@
+
+//src/domain/error/operational.error.ts
 export type ErrorDataType = 
     | string
     | number

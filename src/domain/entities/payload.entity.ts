@@ -1,3 +1,6 @@
+
+//src/domain/entities/payload.entity.ts
+
 import { TypeOf,object,record,string,unknown } from "zod";
 
 export const enrichedTokenPayloadSchema  =object({

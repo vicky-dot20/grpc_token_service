@@ -1,3 +1,4 @@
+//src/application/use_cases/enrich.usecase.ts
 import { SecurePayload } from "../../domain/entities/securePayload.entity";
 import {
   ApplicationErrorFactory,

@@ -1,3 +1,5 @@
+
+//src/domain/error/applicationError.factory.ts
 import { OperationalError } from "./opeartional.error";
 
 export type Err = string |  {};
