@@ -9,7 +9,7 @@ type SubtypeConstructor<Constructor extends new (...args: any) => any, Subtype> 
 
 export interface ProtoGrpcType {
   enrichmentPackage: {
-    EnrichmentRequest: MessageTypeDefinition
+    EmptyRequest: MessageTypeDefinition
     EnrichmentResponse: MessageTypeDefinition
     EnrichmentService: SubtypeConstructor<typeof grpc.Client, _enrichmentPackage_EnrichmentServiceClient> & { service: _enrichmentPackage_EnrichmentServiceDefinition }
   }

@@ -6,6 +6,9 @@ import { LOG_LEVEL } from "../../main/config/constants";
 const { combine, timestamp, align, colorize, errors, printf } = winston.format;
 
 export default class Logger implements LoggerService {
+  warning(_message: unknown): void {
+    throw new Error("Method not implemented.");
+  }
   private logger = winston.createLogger({
     level: LOG_LEVEL,
     format: combine(
@@ -36,7 +39,7 @@ export default class Logger implements LoggerService {
     }
 }
 
-  warning(message: unknown): void {
-    this.logger.warning(message);
-  }
+warn(message: unknown): void { // Corrected method name
+  this.logger.warn(message);
+}
 }

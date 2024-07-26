@@ -3,13 +3,12 @@ syntax = "proto3";
 package enrichmentPackage;
 
 service EnrichmentService {
-  rpc Enrich(EnrichmentRequest) returns (EnrichmentResponse);
+  rpc Enrich(EmptyRequest) returns (EnrichmentResponse);
 }
 
-message EnrichmentRequest {
-  string payload = 1;
+message EmptyRequest {
 }
 
 message EnrichmentResponse {
-  string payload = 1;
+  string token = 1;
 }

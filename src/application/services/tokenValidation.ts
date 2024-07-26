@@ -6,7 +6,7 @@ export function isTokenValid(): boolean {
     if (!tokenData) {
         return false;
     }
-
+    console.log("Checking if token is valid...");
     const expirationDate = new Date(tokenData.expiration);
     return expirationDate > new Date();
 }

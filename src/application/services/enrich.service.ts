@@ -1,8 +1,5 @@
-//src/application/services/enrich.service.ts
-import { enrichedTokenPayloadSchema } from "../../domain/entities/payload.entity";
+import { SecurePayload } from "../../domain/entities/securePayload.entity";
 
-export interface enrichService {
-  enrichToken :(
-    payload : string,
-  )=>Promise<enrichedTokenPayloadSchema| undefined>;
+export interface EnrichService {
+  enrichToken: (payload: SecurePayload) => Promise<{ token: string } | undefined>;
 }

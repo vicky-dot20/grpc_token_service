@@ -1,11 +1,11 @@
+//src/domain/entities/securepayload.entities.ts
+import { TypeOf, object, string } from "zod";
 
-//src/domain/entities/securePayload.entity.ts
-import { TypeOf,object,string } from "zod";
-
+// Schema for secure payload
 export const SecurePayloadschema = object({
-  payload: string({
-    required_error: "payload string is rquried to attemmpt chache storage "
+  token: string({
+    required_error: "Token string is required to attempt cache storage"
   }),
 });
 
-export type SecurePayload = TypeOf< typeof SecurePayloadschema>;
+export type SecurePayload = TypeOf<typeof SecurePayloadschema>;

@@ -18,7 +18,7 @@ async function manageToken() {
 
     const tokenDir = path.resolve(__dirname, '../../../cache/tokens');
     const tokenFilePath = path.join(tokenDir, 'token.json');  // Storing in a JSON file
-
+    console.log("Managing token...");
     // Ensure the directory exists
     if (!fs.existsSync(tokenDir)) {
         fs.mkdirSync(tokenDir, { recursive: true });

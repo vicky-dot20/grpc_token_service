@@ -2,9 +2,9 @@
 
 
 export interface EnrichmentResponse {
-  'payload'?: (string);
+  'token'?: (string);
 }
 
 export interface EnrichmentResponse__Output {
-  'payload'?: (string);
+  'token'?: (string);
 }
