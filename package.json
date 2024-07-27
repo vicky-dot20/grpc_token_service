@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "dist/main/server.js",
   "scripts": {
-    "start:grpc:dev": "nodemon --exec npx tsx src/main/grpc/server.ts",
+    "start:grpc:dev": " npx tsx src/main/grpc/server.ts",
     "build": "tsc && .\\scripts\\proto.gen.sh",
     "pb:gen": " ./scripts/proto.gen.sh enrichment",
     "test": "docker-compose up"
