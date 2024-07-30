@@ -1,32 +1,17 @@
 // src/application/services/tokenCache.ts
 import fs from 'fs';
 import path from 'path';
-
+import cache from 'memory-cache';
 class TokenCache {
-    private cacheDir = path.resolve(__dirname, '../../../cache/tokens');
-    private cacheFilePath = path.join(this.cacheDir, 'token.json');
+    private cachekey = 'authToken';
 
-    constructor() {
-        this.ensureCacheDirectory();
-    }
 
-    private ensureCacheDirectory() {
-        if (!fs.existsSync(this.cacheDir)) {
-            fs.mkdirSync(this.cacheDir, { recursive: true });
-        }
-    }
+   
 
     getToken(): { value: string; expiration: string } | null {
-        if (fs.existsSync(this.cacheFilePath)) {
-            const data = fs.readFileSync(this.cacheFilePath, 'utf8');
-            try {
-                const tokenData = JSON.parse(data);
-                if (new Date(tokenData.expiration) > new Date()) {
-                    return tokenData;
-                }
-            } catch (error) {
-                console.error('Error parsing token data:', error);
-            }
+        const tokenData = cache.get(this.cachekey);
+        if (tokenData && new Date(tokenData.expiration) > new Date()) {
+            return tokenData;
         }
         return null;
     }
@@ -37,7 +22,7 @@ class TokenCache {
             value: token,
             expiration
         };
-        fs.writeFileSync(this.cacheFilePath, JSON.stringify(tokenData), { encoding: 'utf8' });
+        cache.put(this.cachekey, tokenData, expiresIn * 1000);
     }
 }
 
