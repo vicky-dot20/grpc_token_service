@@ -6,7 +6,7 @@
     "start:grpc:dev": " npx tsx src/main/grpc/server.ts",
     "build": "tsc && .\\scripts\\proto.gen.sh",
     "pb:gen": " ./scripts/proto.gen.sh enrichment",
-    "test": "docker-compose up"
+    "test": "jest"
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.10.10",

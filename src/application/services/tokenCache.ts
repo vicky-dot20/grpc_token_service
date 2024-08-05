@@ -4,6 +4,7 @@ import path from 'path';
 import cache from 'memory-cache';
 class TokenCache {
     private cachekey = 'authToken';
+    clear: Mock<any, any, any>;
 
 
    
