@@ -2,11 +2,12 @@
 import fs from 'fs';
 import path from 'path';
 import cache from 'memory-cache';
+
 class TokenCache {
     private cachekey = 'authToken';
-    clear: Mock<any, any, any>;
-
-
+    clear(): void {
+        cache.del(this.cachekey);
+    }
    
 
     getToken(): { value: string; expiration: string } | null {
