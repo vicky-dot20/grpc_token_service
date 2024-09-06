@@ -7,7 +7,7 @@ async function getAuthToken() {
     const clientId = process.env.PING_IDENTITY_CLIENT_ID!;
     const clientSecret = process.env.PING_IDENTITY_CLIENT_SECRET!;
     const environmentId = process.env.PING_IDENTITY_ENVIRONMENT_ID!;
-    const tokenEndpoint = `https://auth.pingone.com.au/${environmentId}/as/token`;
+    const tokenEndpoint = `https://auth.pingone.eu/${environmentId}/as/token`;
 
     const authHeader = `Basic ${Buffer.from(`${clientId}:${clientSecret}`).toString('base64')}`;
     const params = new URLSearchParams({
